@@ -4,6 +4,7 @@
 include '../app/Controller/AbstractController.php';
 include '../app/Controller/UsuarioController.php';
 include '../app/Controller/PalestranteController.php';
+include '../app/Model/Usuario.php';
 
 $routes = [];
 $routes['usuarios'] = [
