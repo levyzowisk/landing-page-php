@@ -3,8 +3,9 @@
 
 abstract class AbstractController
 {
-    public function view(string $name): void
+    public function view(string $name, array $params = []): void
     {
+        extract($params);
         include "../app/views/{$name}.phtml";
     }
 }

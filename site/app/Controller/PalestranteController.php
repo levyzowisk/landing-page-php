@@ -11,6 +11,8 @@ class PalestranteController extends AbstractController
 
     public function list(): void
     {
-        $this->view('palestrantes/list');
+        $usuarios = ['usuarios' => Usuario::all()];
+        $this->view('palestrantes/list', $usuarios);
     }
+
 }
