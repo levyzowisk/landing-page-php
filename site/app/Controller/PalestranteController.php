@@ -6,7 +6,14 @@ class PalestranteController extends AbstractController
 {
     public function add(): void
     {
-        echo "Novo palestrante";
+        if($_POST) {
+           echo '<script type="text/javascript">';
+           echo 'window.location.href="listar";';
+           echo '</script>';
+           die(); 
+        }
+
+        $this->view('palestrantes/add');
     }
 
     public function list(): void
