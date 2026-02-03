@@ -39,4 +39,14 @@ class PalestranteController extends AbstractController
         $this->view('palestrantes/edit', ["usuario" => $usuario]);
     }
 
+    public static function delete(): void {
+        // $id = intval($_GET['id']);
+
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="../listar";';
+        echo '</script>';
+
+
+    }
+
 }

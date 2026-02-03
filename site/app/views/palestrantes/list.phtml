@@ -28,7 +28,7 @@
                         <a href="editar/?id=<?= $usuario['id']?>"class="btn btn-warning">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <button class="btn btn-danger">
+                        <button class="btn btn-danger" onclick="prepareDelete(<?= $usuario['id']?>)">
                             <i class="bi bi-trash3"></i>
                         </button>
                     </td>
@@ -38,3 +38,15 @@
         </table>
     </section>
 </div>
+
+<script src="/validations/validations.js"> </script>
+
+<script>
+    const prepareDelete = (id) => {
+        
+        if(confirm("Tem certeza que deseja excluir este palestrante?")) {
+            confirmDelete('excluir/?id=<?=$id?>');
+        }
+    }
+
+</script>

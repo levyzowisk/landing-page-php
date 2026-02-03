@@ -16,7 +16,7 @@ $routes['usuarios'] = [
 $routes['palestrantes'] = [
     'cadastrar' => [PalestranteController::class, 'add'],
     'editar' => [PalestranteController::class, 'edit'],
-    'excluir' => [PalestranteController::class, 'add'],
+    'excluir' => [PalestranteController::class, 'delete'],
     'listar' => [PalestranteController::class, 'list'],
 ];
 
