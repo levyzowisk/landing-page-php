@@ -21,7 +21,7 @@ class Usuario
             [
                 'id' => 2,
                 'foto' => 'https://example.com/images/maria.jpg',
-                'nome' => 'Maria Oliveira',
+                'nome' => 'Maria Levy',
                 'email' => 'maria.oliveira@example.com',
             ],
         ];
