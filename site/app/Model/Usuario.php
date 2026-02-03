@@ -26,4 +26,21 @@ class Usuario
             ],
         ];
     }
+
+    public static function findById(int $id): ?array
+    {
+        $usuarios = self::all();
+        foreach($usuarios as $usuario) {
+            if($usuario['id'] === $id) {
+                return $usuario;
+            }
+        };
+            return null;
+    }
+
+    public static function update(array $usuario, int $id): void 
+    {
+        var_dump($usuario);
+        var_dump($id);
+    }
 }

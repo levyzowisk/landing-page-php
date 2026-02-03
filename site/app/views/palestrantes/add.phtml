@@ -5,7 +5,7 @@
 
         <div class="mb-3 w-100">
         <label class="form-label">Nome</label>
-        <input class="form-control" id="name" required name="nome" type="text" placeholder="ex: joaozin da silva">
+        <input class="form-control" autocapitalize="words" id="name" required name="nome" type="text" placeholder="ex: joaozin da silva">
     </div>
 
     <div class="mb-3 w-100">
@@ -24,13 +24,16 @@
 
 <script type="module">
     import { sanitazeName, verificarForm } from '/validations/validations.js';
-    
+
     const nameInput = document.getElementById("name");
     const form = document.getElementById("form");
     const btn = document.getElementById("btn_cadastrar");
 
     nameInput.addEventListener("input", (e) => sanitazeName(e));
-    form.addEventListener("input", () => verificarForm(form, btn))
+    form.addEventListener("input", () => {
+        verificarForm(form, btn);
+
+    })
 
 
 

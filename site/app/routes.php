@@ -9,13 +9,13 @@ include '../app/Model/Usuario.php';
 $routes = [];
 $routes['usuarios'] = [
     'cadastrar' => [UsuarioController::class, 'add'],
-    'editar' => [UsuarioController::class, 'add'],
+    'editar' => [UsuarioController::class, 'edit'],
     'excluir' => [UsuarioController::class, 'add'],
     'listar' => [UsuarioController::class, 'list'],
 ];
 $routes['palestrantes'] = [
     'cadastrar' => [PalestranteController::class, 'add'],
-    'editar' => [PalestranteController::class, 'add'],
+    'editar' => [PalestranteController::class, 'edit'],
     'excluir' => [PalestranteController::class, 'add'],
     'listar' => [PalestranteController::class, 'list'],
 ];
@@ -35,5 +35,4 @@ if (false === isset($routes[$entidade][$acao])) {
 $controller = $routes[$entidade][$acao][0];
 $method = $routes[$entidade][$acao][1];
 
-// (new UsuarioController)->add()
 (new $controller)->$method();
