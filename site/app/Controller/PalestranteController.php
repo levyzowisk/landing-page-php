@@ -18,8 +18,8 @@ class PalestranteController extends AbstractController
 
     public function list(): void
     {
-        $usuarios = ['usuarios' => Usuario::all()];
-        $this->view('palestrantes/list', $usuarios);
+        $palestrantes = ['palestrantes' => Palestrante::all()];
+        $this->view('palestrantes/list', $palestrantes);
     }
 
     public function edit(): void {
@@ -35,8 +35,8 @@ class PalestranteController extends AbstractController
           echo '</script>';
         die();
         }
-        $usuario = Usuario::findById($id);
-        $this->view('palestrantes/edit', ["usuario" => $usuario]);
+        $palestrantes = Palestrante::findById($id);
+        $this->view('palestrantes/edit', ["palestrante" => $palestrantes]);
     }
 
     public static function delete(): void {

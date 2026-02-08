@@ -5,17 +5,17 @@
 
         <div class="mb-3 w-100">
         <label class="form-label">Nome</label>
-        <input class="form-control" autocapitalize="words" id="name" required name="nome" value="<?= $usuario["nome"] ?>" type="text" placeholder="ex: joaozin da silva">
+        <input class="form-control" autocapitalize="words" id="name" required name="nome" value="<?= $palestrante["nome"] ?>" type="text" placeholder="ex: joaozin da silva">
     </div>
 
     <div class="mb-3 w-100">
         <label class="form-label" for="">E-mail</label>
-        <input class="form-control" required name="email" value="<?= $usuario["email"] ?>" type="email" placeholder="ex: joaozin@email.com">
+        <input class="form-control" required name="email" value="<?= $palestrante["email"] ?>" type="email" placeholder="ex: joaozin@email.com">
     </div>
 
     <div class="mb-3 w-100">
         <label class="form-label" for="">Foto</label>
-        <input  class="form-control"  required name="foto" value="<?= $usuario["foto"] ?> type="url" placeholder="ex: https://img.example.com">
+        <input  class="form-control"  required name="foto" value="<?= $palestrante["foto"] ?> type="url" placeholder="ex: https://img.example.com">
     </div>
     <button class="btn btn-primary" id="btn_cadastrar" disabled>Atualizar</button>
     </form>
