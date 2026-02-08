@@ -1,3 +1,5 @@
+
+
 <div class="container">
     <section class="mt-4 p-4 border border-2 border-sucess rounded ">
         <div class="d-flex justify-content-between align-items-center">
@@ -15,20 +17,20 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($usuarios as $usuario): ?>
+                <?php foreach ($palestrantes as $palestrante): ?>
 
                 <tr>
-                    <th class="text-start" scope="row"><?= htmlspecialchars($usuario['id']) ?></th>
+                    <th class="text-start" scope="row"><?= htmlspecialchars($palestrante['id']) ?></th>
                     <td class="text-center">
-                        <img src="<?= htmlspecialchars($usuario['foto']) ?>" alt="Foto de <?= htmlspecialchars($usuario['foto']) ?>" class="img-fluid rounded" style="max-width: 50px; max-height: 50px;">  <!-- <tr> -->
+                        <img src="<?= htmlspecialchars($palestrante['foto']) ?>" alt="Foto de <?= htmlspecialchars($palestrante['foto']) ?>" class="img-fluid rounded" style="max-width: 50px; max-height: 50px;">  <!-- <tr> -->
                     </td>
-                    <td class="text-center"><?= htmlspecialchars($usuario['nome']) ?></td>
-                    <td class="text-center"><?= htmlspecialchars($usuario['email']) ?></td>
+                    <td class="text-center"><?= htmlspecialchars($palestrante['nome']) ?></td>
+                    <td class="text-center"><?= htmlspecialchars($palestrante['email']) ?></td>
                     <td class="text-center">
-                        <a href="editar/?id=<?= $usuario['id']?>"class="btn btn-warning">
+                        <a href="editar/?id=<?= $palestrante['id']?>"class="btn btn-warning">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <button class="btn btn-danger" onclick="prepareDelete(<?= $usuario['id']?>)">
+                        <button class="btn btn-danger" onclick="prepareDelete(<?= $palestrante['id']?>)">
                             <i class="bi bi-trash3"></i>
                         </button>
                     </td>
@@ -45,7 +47,7 @@
     const prepareDelete = (id) => {
         
         if(confirm("Tem certeza que deseja excluir este palestrante?")) {
-            confirmDelete('excluir/?id=<?=$id?>');
+            confirmDelete('excluir/?id='+id);
         }
     }
 

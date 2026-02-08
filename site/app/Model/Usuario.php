@@ -1,46 +1,29 @@
-<?php
-
-declare(strict_types=1);
-
+<?php 
 class Usuario
 {
 
-    public string $nome;
-    public string $email;
-    public string $foto;
-
-    public static function all(): array
+    public static function all(): array 
     {
         return [
             [
                 'id' => 1,
-                'foto' => 'https://example.com/images/joao.jpg',
-                'nome' => 'João Silva',
-                'email' => 'joao.silva@example.com',
+                'nome' => 'Levy Pereira Sousa',
+                'email' => 'pereira@gmail.com',
+                'data_nascimento' => '19-02-2005'
             ],
             [
                 'id' => 2,
-                'foto' => 'https://example.com/images/maria.jpg',
-                'nome' => 'Maria Levy',
-                'email' => 'maria.oliveira@example.com',
+                'nome' => 'Maria Oliveira',
+                'email' => 'maria.oliveira@gmail.com',
+                'data_nascimento' => '25-06-1990'
             ],
+            [
+                'id' => 3,
+                'nome' => 'João Silva',
+                'email' => 'joao.silva@gmail.com',
+                'data_nascimento' => '10-12-1985'
+            ]
         ];
     }
-
-    public static function findById(int $id): ?array
-    {
-        $usuarios = self::all();
-        foreach($usuarios as $usuario) {
-            if($usuario['id'] === $id) {
-                return $usuario;
-            }
-        };
-            return null;
-    }
-
-    public static function update(array $usuario, int $id): void 
-    {
-        var_dump($usuario);
-        var_dump($id);
-    }
 }
+?>

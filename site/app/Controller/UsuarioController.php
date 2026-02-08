@@ -5,12 +5,20 @@ declare(strict_types=1);
 class UsuarioController extends AbstractController
 {
     public function add(): void
-    {
+    {    
+        if($_POST) {
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="listar";';
+            echo '</script>';
+            die();
+        }
+        
         $this->view('usuarios/add');
     }
 
     public function list(): void
     {
-        $this->view('usuarios/list');
+        $usuarios = ['usuarios' => Usuario::all()];
+        $this->view('usuarios/list', $usuarios);
     }
 }
