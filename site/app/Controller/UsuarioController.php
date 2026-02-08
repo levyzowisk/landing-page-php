@@ -21,4 +21,19 @@ class UsuarioController extends AbstractController
         $usuarios = ['usuarios' => Usuario::all()];
         $this->view('usuarios/list', $usuarios);
     }
+
+    public function edit(): void 
+    {
+        $id =  intval($_GET['id']);
+        if($_POST) {
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="../listar"';
+            echo '</script>';
+            die();
+        }
+
+
+        $usuario = Usuario::findById($id);
+        $this->view('usuarios/edit', ["usuario" => $usuario]);
+    }
 }
