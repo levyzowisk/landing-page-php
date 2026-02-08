@@ -1,11 +1,7 @@
 <?php
 
-
-include '../app/Controller/AbstractController.php';
-include '../app/Controller/UsuarioController.php';
-include '../app/Controller/PalestranteController.php';
-include '../app/Model/Usuario.php';
-include '../app/Model/Palestrante.php';
+use App\Controller\PalestranteController;
+use App\Controller\UsuarioController;
 
 $routes = [];
 $routes['usuarios'] = [

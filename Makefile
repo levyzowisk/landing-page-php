@@ -9,3 +9,6 @@ bash:
 
 down:
 	docker compose down
+
+composer_install:
+	docker compose exec -T php bash -c "composer install"
