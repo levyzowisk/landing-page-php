@@ -1,1 +1,34 @@
-<h1>Editar usuarios</h1>
+<section class="container pt-5 d-flex justify-content-center ">
+    <form action="" id="form" method="POST" class="w-50">
+        <h2>Editar Usuário</h2>
+        <hr class="opacity-75 border border-1 w-25">  
+
+    <div class="mb-3 w-100">
+        <label class="form-label">Nome</label>
+        <input class="form-control" autocapitalize="words" id="name" required name="nome" value="<?= $usuario["nome"] ?>" type="text" placeholder="ex: joaozin da silva">
+    </div>
+
+    <div class="mb-3 w-100">
+        <label class="form-label">Data de Nascimento</label>
+        <input  class="form-control"  required name="date" type="date" value="<?= $usuario["data_nascimento"] ?>">
+    </div>
+
+    <div class="mb-3 w-100">
+        <label class="form-label" for="">E-mail</label>
+        <input class="form-control" required name="email" value="<?= $usuario["email"] ?>" type="email" placeholder="ex: joaozin@email.com">
+    </div>
+
+    <button class="btn btn-primary" id="btn_cadastrar" disabled>Atualizar</button>
+    </form>
+
+</section>
+<script src="/validations/validations.js"></script>
+<script>
+    const nameInput = document.getElementById("name");
+    const form = document.getElementById("form");
+    const btn = document.getElementById("btn_cadastrar");
+
+    nameInput.addEventListener("input", (e) => sanitazeName(e));
+    form.addEventListener("input", () => verificarForm(form, btn))
+
+</script>
