@@ -36,4 +36,11 @@ class UsuarioController extends AbstractController
         $usuario = Usuario::findById($id);
         $this->view('usuarios/edit', ["usuario" => $usuario]);
     }
+
+    public function delete(): void
+    {
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="../listar"';
+        echo '</script>';
+    }
 }

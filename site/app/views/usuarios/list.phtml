@@ -38,12 +38,11 @@
 </div>
 
 <script src="/validations/validations.js"> </script>
-
 <script>
     const prepareDelete = (id) => {
         
         if(confirm("Tem certeza que deseja excluir este palestrante?")) {
-            confirmDelete('excluir/?id=<?=$id?>');
+            confirmDelete('excluir/?id='+id);
         }
     }
 
