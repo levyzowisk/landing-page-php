@@ -12,3 +12,6 @@ down:
 
 composer_install:
 	docker compose exec -T php bash -c "composer install"
+
+sql:
+	docker compose exec mysql bash
