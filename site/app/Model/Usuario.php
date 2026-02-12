@@ -3,45 +3,62 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-class Usuario
+class Usuario extends AbstractModel
 {
 
     public static function all(): array 
     {
-        return [
-            [
-                'id' => 1,
-                'nome' => 'Levy Pereira Sousa',
-                'email' => 'pereira@gmail.com',
-                'data_nascimento' => '2005-02-19'
-            ],
-            [
-                'id' => 2,
-                'nome' => 'Maria Oliveira',
-                'email' => 'maria.oliveira@gmail.com',
-                'data_nascimento' => '1990-06-25'
-            ],
-            [
-                'id' => 3,
-                'nome' => 'João Silva',
-                'email' => 'joao.silva@gmail.com',
-                'data_nascimento' => '1985-12-10'
-            ]
-        ];
+        $sql = 'SELECT * FROM usuario';
+        return parent::db()->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public static function findById(int $id): ?array
     {
-        $usuario = self::all();
-        foreach($usuario as $usuario)
-        {
-            if($usuario['id'] === $id)
-            {
-                return $usuario;
-            }
-        }
-        return null;
+        $sql = 'SELECT * FROM usuario WHERE id = :id';
+        $query = parent::db()->prepare($sql);
 
+        $query->execute([
+            ':id' => $id
+        ]);
+
+        $result = $query->fetch(\PDO::FETCH_ASSOC);
+
+        return $result ?: null;
+
+    }
+
+    public static function save (array $usuario):void
+    {
+        $sql = 'INSERT INTO usuario(nome, email, senha) VALUES (:nome, :email, :senha)';
+
+        $query = parent::db()->prepare($sql);
+
+        $query->execute([
+            ':nome' => $usuario['nome'],
+            ':email' => $usuario['email'],
+            ':senha' => $usuario['senha']
+        ]);
+    }
+
+    public static function delete(int $id): void
+    {
+        $sql = 'DELETE FROM usuario WHERE id = :id';
+
+        parent::db()->prepare($sql)->execute([
+            ':id' => $id
+        ]);
+    }
+
+    public static function update(array $usuario, int $id): void 
+    {
+        $sql = 'UPDATE usuario SET nome = :nome, email = :email, senha = :senha WHERE id = :id';
+
+        parent::db()->prepare($sql)->execute([
+            ':nome' => $usuario['nome'],
+            ':email' => $usuario['email'],
+            ':senha' => $usuario['senha'],
+            ':id' => $id
+        ]); 
     }
 }
 ?>
