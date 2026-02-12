@@ -15,10 +15,10 @@ class DatabaseConnection
             return;
         }
 
-        $rootPath = dirname(__DIR__, 3);
+        $projectRoot = dirname(__DIR__, 3);
         
-        if (file_exists($rootPath . '/.env')) {
-            $dotenv = Dotenv::createImmutable($rootPath);
+        if (file_exists($projectRoot . '/.env')) {
+            $dotenv = Dotenv::createImmutable($projectRoot);
             $dotenv->load();
         }
 
